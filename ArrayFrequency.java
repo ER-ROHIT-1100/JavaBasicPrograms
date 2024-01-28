@@ -1,31 +1,36 @@
 package com;
+
 import java.util.Scanner;
-public class ArrayFrequency {
+
+class ArrayFrequency {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the  Number:");
+	    Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the Size:");
 		int n = sc.nextInt();
-		int[] x = new int[n];
-		System.out.println("Enter the "+n+" values");
-		for(int i=0; i<x.length; i++) {
-			x[i]=sc.nextInt();
-        }
-		
+		System.out.println("Enter the Array Element:");
+		int[] ar = new int[n];
+		for(int i=0; i<ar.length;i++) {
+			ar[i]=sc.nextInt();
+		}
+		countElement(ar);
 	}
-     static  void printFrequency(int[] x) {
-         int big = x[0];
-         for(int i=1; i<x.length;i++) {
-        	 if(x[i]>big)
-        		 big=x[i];
-         }
-         int[]count = new int[big+1];
-         for(int i=0;i<x.length;i++) {
-        	 count[x[i]]++;
-         }
-         for(int i=0; i<x.length;i++) {
-        	 if(count[i]!=0)
-         System.out.println(i+"--"+count[i]);
-        }
-	  }
+	static void countElement(int ar[]) {
+		int big =ar[0];
+		for(int i=0; i<ar.length; i++) {
+			if(big<ar[i])
+				big=ar[i];
+		}
+		int c[]= new int[big+1];
+			for(int i=0;i<ar.length;i++) {
+					c[ar[i]]++;
+					}
+			for(int i=0; i<c.length; i++) {
+				if(c[i]>0)
+				System.out.println(i+" "+c[i]);
+			}
+	   }
 	}
+	
+
+
